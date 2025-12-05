@@ -14,6 +14,7 @@ More particle shaders and other assets can be found here:
 - **Booth:** https://redsim.booth.pm/  
 - **Patreon:** https://www.patreon.com/red_sim  
 
+![](./Documentation/Preview_0.png)
 
 ## Features
 
@@ -23,6 +24,7 @@ More particle shaders and other assets can be found here:
 - **Highly optimized particle mesh format** - particles use **minimal vertex attributes** (positions only)
 - **Included particle dust shader** - ready to use out of the box
 - **Can be used with VRChat Worlds and Avatars** - avatar usage is not recommended, but possible without the Udon script
+- **Supports VRC Light Volumes** - GPU particles can be lit by Light Volumes which mekes them look even more realistic 
 
 
 ## Installation
