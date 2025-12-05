@@ -1,8 +1,8 @@
 {
   "name": "red.sim.particlevolumes",
   "displayName": "GPU Particle Volumes",
-  "description": "Ultra fast GPU based particles with VRC Light Volumes support.\n\nMore particle shaders for this asset are available here:\nBooth: https://redsim.booth.pm/\nPatreon: https://patreon.com/red_sim",
-  "version": "1.0.0",
+  "description": "Ultra fast GPU based particles with VRC Light Volumes support.",
+  "version": "1.0.1",
   "unity": "2022.3",
   "author": {
     "name": "RED_SIM",

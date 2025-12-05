@@ -1,4 +1,4 @@
-﻿Shader "GPU Particle Volumes/Dust" {
+﻿Shader "GPU Particle Volumes/Simple" {
     
     Properties {
         _Color ("Color", Color) = (1,1,1,1)

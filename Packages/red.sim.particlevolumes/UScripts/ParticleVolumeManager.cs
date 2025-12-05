@@ -1,18 +1,26 @@
-﻿using UdonSharp;
+﻿#if UDONSHARP
+using UdonSharp;
+#endif
 using UnityEngine;
 
 namespace GPUParticleVolumes {
+
+#if UDONSHARP
     [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
     public class ParticleVolumeManager : UdonSharpBehaviour {
-
+#else
+    public class ParticleVolumeManager : MonoBehaviour {
+#endif
         public MeshRenderer MeshRenderer;
         public Transform[] ParticleVolumesIncluders;
         public Transform[] ParticleVolumesExcluders;
         public bool AutoUpdateVolumes = false;
 
         private Matrix4x4[] _matrices = new Matrix4x4[128];
+        private MaterialPropertyBlock _materialProperty;
 
         private void Start() {
+            _materialProperty = new MaterialPropertyBlock();
             UpdateLoop();
         }
 
@@ -25,6 +33,7 @@ namespace GPUParticleVolumes {
             if (MeshRenderer == null || MeshRenderer.sharedMaterial == null) return;
 #if UNITY_EDITOR
             _matrices = new Matrix4x4[128];
+            _materialProperty = new MaterialPropertyBlock();
 #endif
             int count = 0; // All volumes count
             for (int i = 0; i < ParticleVolumesIncluders.Length; i++) {
@@ -43,12 +52,11 @@ namespace GPUParticleVolumes {
                 if (count >= 128) break;
             }
 
-            // Setting variables to material
-            MaterialPropertyBlock materialProperty = new MaterialPropertyBlock();
-            materialProperty.SetMatrixArray("_invWorldMatrix", _matrices);
-            materialProperty.SetInteger("_volumesCount", count);
-            materialProperty.SetInteger("_volumesIncludersCount", includersCount);
-            MeshRenderer.SetPropertyBlock(materialProperty);
+            // Setting variables to material property block
+            _materialProperty.SetMatrixArray("_invWorldMatrix", _matrices);
+            _materialProperty.SetInteger("_volumesCount", count);
+            _materialProperty.SetInteger("_volumesIncludersCount", includersCount);
+            MeshRenderer.SetPropertyBlock(_materialProperty);
 
         }
 

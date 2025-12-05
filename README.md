@@ -65,8 +65,8 @@ More particle shaders and other assets can be found here:
 9. You can activate or deactivate volumes during runtime.
 10. To fully disable the particle system, disable its **Mesh Renderer**.
 11. You may use multiple **Particle Volume Manager** components in the scene to support several particle types.
-12. Particle count depends on a special particle mesh.  
-    (A mesh generator is included in paid asset packs; this free version includes only one example mesh.)
+12. Particle count depends on a special particle mesh.
+   Generate it in "Tools -> GPU Particle Volumes -> Simple Particle Mesh Generator". Apply it to the Mesh Filter on your GPU Particle Volume Manager object.
 13. Configure particle visuals through the material.
 
 
