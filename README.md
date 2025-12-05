@@ -14,7 +14,6 @@ More particle shaders and other assets can be found here:
 - **Booth:** https://redsim.booth.pm/  
 - **Patreon:** https://www.patreon.com/red_sim  
 
----
 
 ## Features
 
@@ -25,30 +24,26 @@ More particle shaders and other assets can be found here:
 - **Included particle dust shader** - ready to use out of the box
 - **Can be used with VRChat Worlds and Avatars** - avatar usage is not recommended, but possible without the Udon script
 
----
 
 ## Installation
 
 ### **VRC Creator Companion (recommended for VRChat creators)**
 
-1. Open the VPM Listing page:  
-   https://redsim.github.io/vpmlisting/
+1. Open the VPM Listing page: https://redsim.github.io/vpmlisting/
 2. Press **“Add to VCC”**
 3. Confirm the popup  
    - If no popup appeared, try again (VCC bug)
 4. In **VCC → Manage Project**, add the package **“GPU Particle Volumes”**
 
----
 
 ### **Unity Package Manager (Git URL method)**
 
 1. Unity top menu: **Window -> Package Manager**
 2. Press **[ + ]** in the top-left corner
 3. Select **“Add package from git URL…”**
-4. Paste the Git URL: https://github.com/REDSIM/GPUParticleVolumes.git?path=/Packages/red.sim.particlevolumes
+4. Paste the Git URL: `https://github.com/REDSIM/GPUParticleVolumes.git?path=/Packages/red.sim.particlevolumes`
 5. Press **Add**
 
----
 
 ## How to Use
 
@@ -72,7 +67,6 @@ More particle shaders and other assets can be found here:
     (A mesh generator is included in paid asset packs; this free version includes only one example mesh.)
 13. Configure particle visuals through the material.
 
----
 
 ## Support the Project ❤️
 
@@ -83,7 +77,6 @@ Thank you! <3
 Patreon:  
 https://www.patreon.com/red_sim  
 
----
 
 ## Contact
 
