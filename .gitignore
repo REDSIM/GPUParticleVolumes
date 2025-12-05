@@ -75,4 +75,5 @@ crashlytics-build.properties
 /[Pp]rojectSettings/
 [Bb]akery-*
 /[Pp]ackages/com.vrchat.*
-![Pp]ackages/red.sim.*
+[Pp]ackages/red.sim.lightvolumes
+![Pp]ackages/red.sim.particlevolumes

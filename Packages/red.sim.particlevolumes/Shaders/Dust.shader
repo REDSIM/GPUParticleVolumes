@@ -4,7 +4,8 @@
         _Color ("Color", Color) = (1,1,1,1)
         _MainTex ("Texture", 2D) = "white" {}
         _DrawDistance ("Draw distance", Float) = 20
-        _Size ("Particle Size", Float)  = 0.015
+        _Size ("Particle Size", Float)  = 0.01
+        _SizeRandomize ("Particle Size Randomize", Range(0,1))  = 0.75
         _Amplitude ("Amplitude", Float) = 1
         _Frequency ("Frequency", Float) = 1
         _EdgeFade ("Edge Fade", Range(0,1)) = 0.015
@@ -47,6 +48,7 @@
 
             float  _DrawDistance;
             float  _Size;
+            float  _SizeRandomize;
             float  _Amplitude;
             float  _Frequency;
             float  _EdgeFade;
@@ -87,9 +89,10 @@
                 float y = v.vertex.y; // Random Y pos [0..1]
                 float x = v.vertex.x; // Random X pos [0..1]
                 float z = v.vertex.z; // Random Z pos [0..1]
+                float rndXYZ = frac((z + y + x) * 17); // // Random using XYZ pos [0..1]
 
                 // Cull particles to decrease snow density with Snowing parameter
-                if (frac(z + y + x) > _VisibleAmount) CULL_VERTEX(o);
+                if (rndXYZ > _VisibleAmount) CULL_VERTEX(o);
 
                 // Extra random value
                 uint particleID = floor(v.vertexID / 4); // Particle ID is the same for each particle vertex
@@ -148,7 +151,7 @@
                     edgeK = saturate(distToFace / fadeLen);
                 }
 
-                float pSize = _Size * edgeK; // Final particle size
+                float pSize = _Size * (1 + _SizeRandomize * (2 * rnd - 1)) * edgeK; // Final particle size
                 float rWorld = pSize * 1.41421356; // Half of the quad diagonal
 
                 // Frustum culling
@@ -159,7 +162,7 @@
                 // Coloring with Light Volumes
                 fixed4 tint = _Color;
                 #ifdef SNOW_USE_LIGHTVOLUMES
-                    tint *= float4(LightVolumeSH_L0(worldPos), 1); // Coloring based on Light Volumes
+                    tint *= _UdonLightVolumeEnabled > 0 ? float4(LightVolumeSH_L0(worldPos), 1) : 1; // Coloring based on Light Volumes
                 #endif
 
                 // Forming UV
