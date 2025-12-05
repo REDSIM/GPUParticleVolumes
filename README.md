@@ -1,9 +1,6 @@
-# GPU Particle Volumes by RED_SIM
 
-GitHub Repository:  
-https://github.com/REDSIM/GPUParticleVolumes/
-
----
+<p align="center"> <img src="./Documentation/LogoMain.png#gh-dark-mode-only" alt="GPU Particle Volumes Main Logo" width="627" /></p>
+<p align="center"> <img src="./Documentation/LogoMainBright.png#gh-light-mode-only" alt="GPU Particle Volumes Main Logo" width="627" /></p>
 
 ## Overview
 
@@ -26,6 +23,7 @@ More particle shaders and other assets can be found here:
 - **Extremely fast GPU-driven particles** - hundreds of thousands of particles can be rendered with **no noticeable performance drop**, even on low-end devices
 - **Highly optimized particle mesh format** - particles use **minimal vertex attributes** (positions only)
 - **Included particle dust shader** - ready to use out of the box
+- **Can be used with VRChat Worlds and Avatars** - avatar usage is not recommended, but possible without the Udon script
 
 ---
 
