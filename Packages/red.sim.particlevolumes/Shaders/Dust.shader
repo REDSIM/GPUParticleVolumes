@@ -10,6 +10,7 @@
         _Frequency ("Frequency", Float) = 1
         _EdgeFade ("Edge Fade", Range(0,1)) = 0.015
         _VisibleAmount ("Visible Amount", Range(0,1)) = 1
+        _ClipBrightness ("Clip Brightness", Float) = 1.5
         [Toggle(SNOW_USE_LIGHTVOLUMES)] _UseLightVolumes ("Use Light Volumes", Float) = 1
     }
 
@@ -54,6 +55,7 @@
             float  _EdgeFade;
             float  _UseLightVolumes;
             float  _VisibleAmount;
+            float  _ClipBrightness;
 
             // Particle Volumes
             float4x4 _invWorldMatrix[128];
@@ -164,6 +166,7 @@
                 #ifdef SNOW_USE_LIGHTVOLUMES
                     tint *= _UdonLightVolumeEnabled > 0 ? float4(LightVolumeSH_L0(worldPos), 1) : 1; // Coloring based on Light Volumes
                 #endif
+                tint = min(tint, _ClipBrightness);
 
                 // Forming UV
                 float2 uv = float2(v.vertexID & 1, (v.vertexID >> 1) & 1);

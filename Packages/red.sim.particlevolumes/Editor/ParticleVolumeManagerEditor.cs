@@ -1,8 +1,6 @@
 using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
-using UnityEditor.SceneManagement;
-using UnityEngine.SceneManagement;
 
 namespace GPUParticleVolumes {
     [InitializeOnLoad]
@@ -14,21 +12,12 @@ namespace GPUParticleVolumes {
         static ParticleVolumeManagerEditor() {
             SceneView.duringSceneGui += OnSceneGUI;
             EditorApplication.delayCall += RefreshManagersListAndInitialize;
-            EditorApplication.hierarchyChanged += RefreshManagersList;
-            EditorSceneManager.sceneSaved += RefreshManagersListAndInitialize;
         }
 
         // Searching for ParticleVolumeManagers
-        private static void RefreshManagersListAndInitialize(Scene scene) {
-            RefreshManagersList();
-            _isInitialized = false;
-        }
         private static void RefreshManagersListAndInitialize() {
-            RefreshManagersList();
-            _isInitialized = false;
-        }
-        private static void RefreshManagersList() {
             _particleVolumeManagers = Object.FindObjectsOfType<ParticleVolumeManager>();
+            _isInitialized = false;
         }
 
         // Drowing bounds volume

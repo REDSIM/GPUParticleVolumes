@@ -44,9 +44,11 @@ namespace GPUParticleVolumes {
             }
 
             // Setting variables to material
-            MeshRenderer.sharedMaterial.SetMatrixArray("_invWorldMatrix", _matrices);
-            MeshRenderer.sharedMaterial.SetInteger("_volumesCount", count);
-            MeshRenderer.sharedMaterial.SetInteger("_volumesIncludersCount", includersCount);
+            MaterialPropertyBlock materialProperty = new MaterialPropertyBlock();
+            materialProperty.SetMatrixArray("_invWorldMatrix", _matrices);
+            materialProperty.SetInteger("_volumesCount", count);
+            materialProperty.SetInteger("_volumesIncludersCount", includersCount);
+            MeshRenderer.SetPropertyBlock(materialProperty);
 
         }
 
