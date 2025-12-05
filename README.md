@@ -5,7 +5,7 @@
 ## Overview
 
 This is a **free open-source VRChat Unity tool** that helps to manage GPU particles in your Unity scene. 
-This asset comes with one example dust particle shader.
+This asset includes few simple GPU particle shaders and prefabs.
 
 If you want more particle shaders compatible with this system, you can purchase additional shader packs on my Booth and Patreon.
 
