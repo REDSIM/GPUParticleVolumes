@@ -50,13 +50,13 @@ More particle shaders and other assets can be found here:
 1. Drag and drop a particle prefab into your scene.  
 2. Select the object and check the **Particle Volume Manager** component.  
 3. You will see two lists:
-   - **Includers**
-   - **Excluders**
+   - **Particle Volume Includers**
+   - **Particle Volume Excluders**
 4. These lists contain empty GameObjects that represent particle volumes.
 5. When assigned and selected, they display special gizmos that help you visualize and resize the volume.  
    (Make sure **Gizmos** are enabled in the Scene View!)
-6. **Includers** define where particles will be rendered.
-7. **Excluders** define areas where particles are masked  
+6. **Particle Volume Includers** define where particles will be rendered.
+7. **Particle Volume Excluders** define areas where particles are masked  
    (useful for blocking snow/rain inside buildings).
 8. **Auto Update Volumes** updates volume transforms during runtime.  
    Enable only if you move or enable/disable volumes at runtime.
