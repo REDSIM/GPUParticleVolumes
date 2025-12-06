@@ -19,7 +19,7 @@ namespace GPUParticleVolumes {
         private Matrix4x4[] _matrices = new Matrix4x4[128];
         private MaterialPropertyBlock _materialProperty;
 
-        private void Start() {
+        private void OnEnable() {
             _materialProperty = new MaterialPropertyBlock();
             UpdateLoop();
         }
