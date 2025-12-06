@@ -16,6 +16,7 @@ namespace GPUParticleVolumes {
             EditorApplication.delayCall += RefreshManagersListAndInitialize;
             EditorApplication.projectChanged += RefreshManagersListAndInitialize;
             EditorSceneManager.sceneSaved += RefreshManagersListAndInitialize;
+            EditorApplication.hierarchyChanged += RefreshManagersListAndInitialize;
         }
 
         private static void RefreshManagersListAndInitialize(Scene scene) {
