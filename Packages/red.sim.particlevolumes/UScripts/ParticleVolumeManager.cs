@@ -21,12 +21,11 @@ namespace GPUParticleVolumes {
 
         private void OnEnable() {
             _materialProperty = new MaterialPropertyBlock();
-            UpdateLoop();
+            UpdateVolumes();
         }
 
-        public void UpdateLoop() {
-            UpdateVolumes();
-            if (AutoUpdateVolumes) SendCustomEventDelayedFrames("UpdateLoop", 1, VRC.Udon.Common.Enums.EventTiming.Update);
+        public void Update() {
+            if (AutoUpdateVolumes) UpdateVolumes();
         }
 
         public void UpdateVolumes() {
