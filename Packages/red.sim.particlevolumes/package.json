@@ -2,7 +2,7 @@
   "name": "red.sim.particlevolumes",
   "displayName": "GPU Particle Volumes",
   "description": "Ultra fast GPU based particles with VRC Light Volumes support.",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "unity": "2022.3",
   "author": {
     "name": "RED_SIM",
