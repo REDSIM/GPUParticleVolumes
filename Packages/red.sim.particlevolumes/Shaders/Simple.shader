@@ -26,6 +26,8 @@
 
         Pass {
 
+            Tags { "LightMode" = "ForwardBase" }
+
             Blend SrcAlpha OneMinusSrcAlpha
             ZWrite Off
             ZTest LEqual
