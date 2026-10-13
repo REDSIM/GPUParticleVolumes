@@ -24,8 +24,16 @@ More particle shaders and other assets can be found here:
 - **Highly optimized particle mesh format** - particles use **minimal vertex attributes** (positions only)
 - **Included particle dust shader** - ready to use out of the box
 - **Can be used with VRChat Worlds and Avatars** - avatar usage is not recommended, but possible without the Udon script
-- **Supports VRC Light Volumes** - GPU particles can be lit by Light Volumes which mekes them look even more realistic 
+- **Supports VRC Light Volumes 3** - GPU particles support cookies, EVSM shadows and Froxel Clustering, with compatibility for VRCLV 2.x worlds
 - **Multiplatform** - works on PC, Android and iOS
+
+## VRC Light Volumes support in 1.1.0
+
+Enable **Use Light Volumes** on a particle material to light each particle at its center. Both **Simple** and **Simple Additive** include the VRCLV 3.0.0 shader library and use Shader Model 3.5, supporting PC, Android/GLES3 and iOS/Metal. Lighting runs in the vertex stage to keep the cost low for overlapping particles.
+
+The VRC Light Volumes package is optional. Without an active, supported Light Volume Manager, particles keep their material color. Simple multiplies that color by L0 lighting; Simple Additive retains its existing additive tint and brightness behavior. Existing materials and prefabs keep their properties and GUIDs.
+
+For shader authors: keep `LightVolumes.cginc` and `LightVolumesBuildConfig.cginc` together. An installed VRCLV package manages scene-specific shader stripping through the config. Distribute the config with all features enabled, without `VRCLV_DISABLE_*` definitions.
 
 ## Installation
 

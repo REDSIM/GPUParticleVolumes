@@ -1,5 +1,7 @@
 #Project Specific
 /Local/
+/Exports/
+/ClientSimStorage/
 
 # ---> Unity
 # This .gitignore file should be placed at the root of your Unity project directory
@@ -29,6 +31,9 @@
 
 # Visual Studio cache directory
 .vs/
+
+# JetBrains IDE project settings
+.idea/
 
 # Gradle cache directory
 .gradle/

@@ -34,16 +34,18 @@
             Cull Off
 
             CGPROGRAM
-            #pragma target 3.0
+            #pragma target 3.5
             #pragma vertex   vert
             #pragma fragment frag
             #pragma multi_compile_fog
             #pragma multi_compile_instancing
 
-            #pragma shader_feature __ SNOW_USE_LIGHTVOLUMES
+            #pragma shader_feature_local __ SNOW_USE_LIGHTVOLUMES
 
             #include "UnityCG.cginc"
-            #include "LightVolumes.cginc"
+            #ifdef SNOW_USE_LIGHTVOLUMES
+                #include "LightVolumes.cginc"
+            #endif
 
             sampler2D _MainTex;
             float4    _MainTex_ST;
@@ -166,7 +168,8 @@
                 // Coloring with Light Volumes
                 fixed4 tint = _Color;
                 #ifdef SNOW_USE_LIGHTVOLUMES
-                    tint *= _UdonLightVolumeEnabled > 0 ? float4(LightVolumeSH_L0(worldPos), 1) : 1; // Coloring based on Light Volumes
+                    // Sample L0 at the particle center so lighting stays independent of the billboard orientation.
+                    if (LightVolumesEnabled()) tint.rgb *= LightVolumeSH_L0(worldPos);
                 #endif
                 tint = min(tint, _ClipBrightness);
 

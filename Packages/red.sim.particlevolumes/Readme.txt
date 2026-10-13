@@ -1,8 +1,16 @@
-﻿GPU Particle Volumes by RED_SIM
+﻿GPU Particle Volumes 1.1.0 by RED_SIM
 GitHub: https://github.com/REDSIM/GPUParticleVolumes/
 
 This is a free open source Asset Package which includes few simple GPU particle shaders and prefabs.
 However, you can buy more particle shaders, that are compatible with this system, on my Booth and Patreon!
+
+VRC LIGHT VOLUMES 3 SUPPORT:
+- Simple and Simple Additive include the VRCLV 3.0.0 shader library, with compatibility for VRCLV 2.x worlds.
+- Enable "Use Light Volumes" on the material to sample lighting at each particle's center. VRCLV 3 cookies, EVSM shadows and Froxel Clustering are supported.
+- The VRCLV package is optional. Without an active, supported manager, particles keep their material color.
+- Simple multiplies the material color by L0 lighting. Simple Additive keeps its existing additive lighting and brightness behavior.
+- Requires Shader Model 3.5 (PC, Android/GLES3 and iOS/Metal).
+- Keep LightVolumes.cginc and LightVolumesBuildConfig.cginc together. VRCLV manages scene-specific shader stripping through the config; distribute it with all features enabled (no VRCLV_DISABLE_* definitions).
 
 More particle shaders and other assets you can find here:
 
@@ -38,11 +46,19 @@ More info and instructions here: https://github.com/REDSIM/GPUParticleVolumes/
 
 ----------------------------------------------------------------------------------------
 
-GPU Particle Volumes by RED_SIM
+GPU Particle Volumes 1.1.0 by RED_SIM
 GitHub: https://github.com/REDSIM/GPUParticleVolumes/
 
 これは、いくつかのシンプルな GPU パーティクル用シェーダーとプレハブを含む、無料のオープンソースのアセットパッケージです。
 また、このシステムと互換性のある追加パーティクルシェーダーを、Booth と Patreon で購入できます！
+
+VRC LIGHT VOLUMES 3 対応:
+- Simple と Simple Additive に VRCLV 3.0.0 のシェーダーライブラリを同梱しています。VRCLV 2.x のワールドにも対応しています。
+- マテリアルの "Use Light Volumes" を有効にすると、各パーティクルの中心でライティングを取得します。VRCLV 3 の Cookie、EVSM シャドウ、Froxel Clustering に対応しています。
+- VRCLV パッケージのインストールは任意です。対応する Manager が有効でない場合は、マテリアルの色をそのまま使用します。
+- Simple はマテリアルの色に L0 ライティングを乗算します。Simple Additive は既存の加算ライティングと明るさの動作を維持します。
+- Shader Model 3.5 が必要です（PC、Android/GLES3、iOS/Metal）。
+- LightVolumes.cginc と LightVolumesBuildConfig.cginc は一緒に配置してください。VRCLV は設定ファイルでシーンに応じたシェーダー機能の削減を管理します。配布時にはすべての機能を有効にしてください（VRCLV_DISABLE_* を定義しないでください）。
 
 追加のパーティクルシェーダーやその他のアセットはこちら：
 
